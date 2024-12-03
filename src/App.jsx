@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 function App() {
-  const [addArcticles, setAddArcticle] = useState("Dario");
+  const [addArcticles, setAddArcticle] = useState("Titolo articolo");
   const [arcticles, setArcticles] = useState([
-    "Attualità",
-    "Cronaca",
-    "Spettacolo",
+    "Tagli all'edilizia",
+    "Omicidio su Marte",
+    "Concerto Stranamore a Pisa",
   ]);
 
   const handleInputChange = (event) => {
