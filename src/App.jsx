@@ -24,8 +24,8 @@ function App() {
   // CREO OGGETTO PER GESTIRE I CAMPI MULTIPLI
   const [formData, setFormData] = useState({
     image: "https://static.spin.com/files/2020/12/SC13-1608419365.jpg",
-    content: "Ozzy Osbourne",
-    category: "Music",
+    content: "",
+    category: "",
   });
 
   // CREO UNA FUNZIONE UNICA PER GESTIRE L'EVENTO ONCHANGE DEI CAMPI
@@ -47,7 +47,6 @@ function App() {
 
     setArticleList([...articleList, newArticle]);
     setTitleField("");
-    console.log(articleList);
   };
 
   const handleTitleChange = (e) => {
@@ -99,6 +98,7 @@ function App() {
                 </label>
                 <input
                   value={formData.content}
+                  name="content"
                   onChange={handleFormData}
                   type="text"
                   className="form-control mb-3"
@@ -110,6 +110,7 @@ function App() {
                 </label>
                 <input
                   value={formData.category}
+                  name="category"
                   onChange={handleFormData}
                   type="text"
                   className="form-control mb-3"
@@ -138,6 +139,10 @@ function App() {
                     ></button>
                     <div className="card-body">
                       <h3>{article.title}</h3>
+                      <img className="img-fluid" src={formData.image} alt="" />
+                      <p>{formData.content}</p>
+                      <hr />
+                      <p>{formData.category}</p>
                     </div>
                   </div>
                 </div>
