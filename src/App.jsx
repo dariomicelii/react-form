@@ -21,6 +21,21 @@ function App() {
   const [titleField, setTitleField] = useState("");
   const [articleList, setArticleList] = useState([]);
 
+  // CREO OGGETTO PER GESTIRE I CAMPI MULTIPLI
+  const [formData, setFormData] = useState({
+    image: "https://static.spin.com/files/2020/12/SC13-1608419365.jpg",
+    content: "Ozzy Osbourne",
+    category: "Music",
+  });
+
+  // CREO UNA FUNZIONE UNICA PER GESTIRE L'EVENTO ONCHANGE DEI CAMPI
+  function handleFormData(e) {
+    setFormData((formData) => ({
+      ...formData,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
   const handleInsertArticleSubmit = (e) => {
     e.preventDefault();
 
@@ -65,6 +80,40 @@ function App() {
                   type="text"
                   className="form-control mb-3"
                   id="article-title"
+                />
+
+                <label className="form-label" htmlFor="article-title">
+                  Immagine
+                </label>
+                <input
+                  value={formData.image}
+                  name="image"
+                  onChange={handleFormData}
+                  type="image"
+                  className="form-control mb-3"
+                  id="article-image"
+                />
+
+                <label className="form-label" htmlFor="article-title">
+                  Contenuto
+                </label>
+                <input
+                  value={formData.content}
+                  onChange={handleFormData}
+                  type="text"
+                  className="form-control mb-3"
+                  id="article-content"
+                />
+
+                <label className="form-label" htmlFor="article-title">
+                  Categoria
+                </label>
+                <input
+                  value={formData.category}
+                  onChange={handleFormData}
+                  type="text"
+                  className="form-control mb-3"
+                  id="article-content"
                 />
               </div>
               <div className="col-12">
